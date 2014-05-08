@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0042)http://www.itpassport.jp/simulation01.html -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ステラテジ</title>
+  </head>
+  <body bgcolor="white" text="dimgray" onload="document.myForm.reset()" onunload="byebye()">
+    <script>
+      <!-- 
+        var NUM=20;  // 問題数
+        var tate_yoko="tate";  // 選択肢の並べ方
+        var shuffle =1;  // 問題の順番をランダムにする(1)、しない(0)
+        
+        var is_newWin=0;
+        
+        // １次元配列作成
+        function MakeArray(n){
+        	this.length=n;
+        }
+        
+        // ２次元配列作成
+        function DIM(dimx,dimy){
+        	var i;
+        	var myArray = new Array(dimy);
+        	for (i=0; i<=dimx; i++) myArray[i] = new Array(dimx);
+        		return myArray;
+        }
+        
+        var q=new MakeArray(NUM); // 問題文データ配列
+        var s=new DIM(NUM,4);     // 選択肢データ配列
+        var v=new DIM(NUM,4);     // 選択肢値　正解=1  不正解=0 
+
+
+q[1]="情報戦略の立案時に、必ず整合性をとるべき対象はどれか。";
+s[1][1]="中長期の経営計画";
+s[1][2]="新しく登場した情報技術";
+s[1][3]="基幹システムの改修計画";
+s[1][4]="情報システム部門の年度計画";
+
+q[2]="n個の評価項目があるときに、円をn等分するように中心からn本の評価軸を設定して、各軸上に評価値をプロットする。隣接するプロットされた点同士を線分で結ぶことによって、項目間の相対的なバランス評価や平均からの隔たり具合を見るのに適したグラフはどれか。";
+s[2][1]="レーダチャート";
+s[2][2]="Zチャート";
+s[2][3]="散布図";
+s[2][4]="ファンチャート";
+
+q[3]="コアコンピタンスの説明として、適切なものはどれか。";
+s[3][1]="他社との差別化の源泉となる経営資源　　　";
+s[3][2]="事業戦略の遂行によって達成すべき到達目標　　";
+s[3][3]="自社を取り巻く環境に関するビジネス上の機会と脅威　　";
+s[3][4]="経営活動における基本精神や行動指針";
+
+q[4]="パソコン、サーバ、ネットワーク機器などの導入から運用管理までの総費用を表す用語はどれか。　";
+s[4][1]="TCO";
+s[4][2]="TCP";
+s[4][3]="TPC";
+s[4][4]="TQC";
+
+q[5]="情報システムのコストを削減するために、情報システムの開発や運用保守にかかわる全部又はほとんどの機能を外部の専門企業に委託する形態はどれか。　";
+s[5][1]="アウトソーシング";
+s[5][2]="アライアンス　";
+s[5][3]="システムインテグレーション";
+s[5][4]="人材派遣　";
+
+q[6]="著作権に関する記述のうち、適切なものはどれか。";
+s[6][1]="著作物を創作した時点で権利が発生する。";
+s[6][2]="管轄官庁は特許庁である。";
+s[6][3]="権利の存続期間は10年である。";
+s[6][4]="管轄官庁に登録しないと権利が発生しない。";
+
+q[7]="“計画を立ててそれを実行に移す。その成果を検討し、もし期待された成果が得られていなければ、原因を追求して反省し、次の仕事にこれを生かす”ことを示すものはどれか。　";
+s[7][1]="PDCA";
+s[7][2]="AIDMA";
+s[7][3]="SWOT";
+s[7][4]="ブレーンストーミング　";
+
+q[8]="職場に似た状態を設定して、疑似体験を通して研修を行う方法はどれか。";
+s[8][1]="ロールプレイング";
+s[8][2]="オンザジョブトレーニング";
+s[8][3]="ケーススタディ";
+s[8][4]="　インバスケット";
+
+q[9]="不正競争防止法が保護する対象はどれか。";
+s[9][1]="事業活動に有用な情報で、秘密として管理されているもの";
+s[9][2]="自然法則を利用した技術的思想の創作のうち高度なもの";
+s[9][3]="著作物を翻訳、翻案して創作された二次的著作物";
+s[9][4]="法人の発意に基づいて作成されたプログラムの著作物";
+
+q[10]="デルファイ法を適用する事例として、適切なものはどれか。";
+s[10][1]="通信分野の10年後の技術動向分析";
+s[10][2]="現行の携帯電話サービス利用者のセグメント分析";
+s[10][3]="商圏における人口動態分析";
+s[10][4]="過去に発生したシステム障害の原因分析";
+
+q[11]="店舗で商品を販売した時点で販売情報を記録し、商品売上情報を単品ごとに収集,蓄積、分析するシステムはどれか。";
+s[11][1]="POS　";
+s[11][2]="CIM　";
+s[11][3]="EOS　";
+s[11][4]="CAD　";
+
+q[12]="財務諸表のうち、一定時点における企業の資産、負債及び資本を表示し、企業の財政状態を明らかにするものはどれか。";
+s[12][1]="貸借対照表";
+s[12][2]="損益計算書";
+s[12][3]="キャッシュフロー計算書";
+s[12][4]="利益処分計算";
+
+q[13]="図の使い方に関する記述のうち、適切なものはどれか。 ";
+s[13][1]="物品購入の手続を示すためにフローチャートを使う。";
+s[13][2]="CPU の価格と性能の関係を示すために特性要因図を使う。";
+s[13][3]="休日のシステム障害時の電話連絡の順序を示すためにガントチャートを使う。";
+s[13][4]="製品の品質悪化の原因を把握するためにアローダイアグラムを使う。";
+
+q[14]="購入価格100万円のパソコンLAN一式を、5年リースで利用したい。リース料率を2％としたときのリース料総額は何万円か。ここで、リース料率とは、購入価格に対する月額リース料の割合である。";
+s[14][1]="120";
+s[14][2]="112";
+s[14][3]="114";
+s[14][4]="124 ";
+
+q[15]="小さな面積で多くの情報を詰め込むことができ、読取り時にコードの一部が読めなくてもデータを正しく読み出せるようなエラー訂正機能をもつコードはどれか。";
+s[15][1]="2次元バーコード";
+s[15][2]="ISBNコード ";
+s[15][3]="Unicode";
+s[15][4]="全銀協コード";
+
+q[16]="製造物責任法における製造物の対象となるのはどれか。";
+s[16][1]="パソコンの中古品";
+s[16][2]="ソフトウェア";
+s[16][3]="ソフトウェア会社の不動産";
+s[16][4]="ユーザサポートサービス";
+
+q[17]="100万円で購入した機械装置の減価償却を6年の定率法で実施すると、1年目の減価償却額は約32万円である。2年目の減価償却額は約何万円か。 ";
+s[17][1]="22";
+s[17][2]="10";
+s[17][3]="32";
+s[17][4]="68";
+
+q[18]="コンピュータデータの不正作出に関する条文を含む法規はどれか。";
+s[18][1]="刑法 ";
+s[18][2]="行政機関の個人情報保護法";
+s[18][3]="著作権法";
+s[18][4]="特許法";
+
+q[19]="現在、コンピュータでは様々な文字コードが使われているが、コード体系のうち、漢字に関する規定がないものはどれか。";
+s[19][1]="ASCII";
+s[19][2]="EUC";
+s[19][3]="Unicode";
+s[19][4]="シフトJISコード";
+
+q[20]="財務諸表のうち、一定時点における企業の資産、負債及び純資産を表示し、企業の財政状態を明らかにするものはどれか。";
+s[20][1]="貸借対照表 ";
+s[20][2]="株主資本等変動計算書";
+s[20][3]="キャッシュフロー計算書 ";
+s[20][4]="損益計算書";
+
+        
+        v[1][1]=1; v[1][2]=0; v[1][3]=0; v[1][4]=0; 
+        v[2][1]=1; v[2][2]=0; v[2][3]=0; v[2][4]=0; 
+        v[3][1]=1; v[3][2]=0; v[3][3]=0; v[3][4]=0; 
+        v[4][1]=1; v[4][2]=0; v[4][3]=0; v[4][4]=0; 
+        v[5][1]=1; v[5][2]=0; v[5][3]=0; v[5][4]=0; 
+        v[6][1]=1; v[6][2]=0; v[6][3]=0; v[6][4]=0; 
+        v[7][1]=1; v[7][2]=0; v[7][3]=0; v[7][4]=0; 
+        v[8][1]=1; v[8][2]=0; v[8][3]=0; v[8][4]=0; 
+        v[9][1]=1; v[9][2]=0; v[9][3]=0; v[9][4]=0; 
+        v[10][1]=1; v[10][2]=0; v[10][3]=0; v[10][4]=0; 
+        v[11][1]=1; v[11][2]=0; v[11][3]=0; v[11][4]=0; 
+        v[12][1]=1; v[12][2]=0; v[12][3]=0; v[12][4]=0; 
+        v[13][1]=1; v[13][2]=0; v[13][3]=0; v[13][4]=0; 
+        v[14][1]=1; v[14][2]=0; v[14][3]=0; v[14][4]=0; 
+        v[15][1]=1; v[15][2]=0; v[15][3]=0; v[15][4]=0; 
+        v[16][1]=1; v[16][2]=0; v[16][3]=0; v[16][4]=0; 
+        v[17][1]=1; v[17][2]=0; v[17][3]=0; v[17][4]=0; 
+        v[18][1]=1; v[18][2]=0; v[18][3]=0; v[18][4]=0; 
+        v[19][1]=1; v[19][2]=0; v[19][3]=0; v[19][4]=0; 
+        v[20][1]=1; v[20][2]=0; v[20][3]=0; v[20][4]=0; 
+        
+        
+        // 乱数発生
+        function ransu(n) {
+        	var k=1, l,  bingo;
+        	var x=new MakeArray(NUM);
+        
+        	x[k] = Math.floor(n * Math.random())+1;
+        	k++;
+        	while ( k<=n ) {
+        		x[k] = Math.floor(n * Math.random())+1;
+        		bingo = 0;
+        	    for (l=1; l<k; l++) {  // すでに同じ数字がないかチェック
+        	    	if ( x[k] == x[l] ) { bingo=1; break; }
+        	    }
+        	    if (bingo==0) { k++; }	// 同じ数字がなければ k++
+        	}
+        	return x;
+        }
+        
+        
+        // 正解数カウント用配列
+        var a=new MakeArray(NUM);
+        for (i=1;i<=NUM;i++) { a[i]=0; }
+        
+        	function radio1(parts) { a[1]=parts.value; }
+        function radio2(parts) { a[2]=parts.value; }
+        function radio3(parts) { a[3]=parts.value; }
+        function radio4(parts) { a[4]=parts.value; }
+        function radio5(parts) { a[5]=parts.value; }
+        function radio6(parts) { a[6]=parts.value; }
+        function radio7(parts) { a[7]=parts.value; }
+        function radio8(parts) { a[8]=parts.value; }
+        function radio9(parts) { a[9]=parts.value; }
+        function radio10(parts) { a[10]=parts.value; }
+        function radio11(parts) { a[11]=parts.value; }
+        function radio12(parts) { a[12]=parts.value; }
+        function radio13(parts) { a[13]=parts.value; }
+        function radio14(parts) { a[14]=parts.value; }
+        function radio15(parts) { a[15]=parts.value; }
+        function radio16(parts) { a[16]=parts.value; }
+        function radio17(parts) { a[17]=parts.value; }
+        function radio18(parts) { a[18]=parts.value; }
+        function radio19(parts) { a[19]=parts.value; }
+        function radio20(parts) { a[20]=parts.value; }
+        
+        
+        // 結果 window display
+        function kekka(f){
+        	var data="", seikai=0 ,j, i, yy;
+        	data += "<html><head><title>結果</title></head>";
+        	data += "<bo" + "dy bgcolor=pink>";
+        	data += "<h3>採点結果です</h3>";
+        	data += "<table border=0 cellspacing=2 cellpadding=5><tr>";
+        	for(i=1;i<=NUM;i++){
+        		j=x[i];
+        		data += "<td width=80 align=center bgcolor=white>問"+i+"</td>";
+        		if (a[j]==1) {
+        			data += "<td width=40 align=center bgcolor=white><font color=blue>○</font></td>";
+        		} else {
+        			data += "<td width=40 align=center bgcolor=white><font color=red>×</font></td>";
+        		}
+        		if (i%5==0) {data += "</tr><tr>";}
+                seikai=seikai+eval(a[j]);      // 正解数をカウント
+            }
+            data += "</tr></table><br>";
+            data += "<table width=400><tr><td>";
+            if (seikai != NUM) {
+            	data += "<font color=green>"+NUM+"問中"+seikai+"問正解</font><br>"; 
+            }
+            if (seikai == NUM) {
+            	data += "<font color=red><i>Perfect !! 全問正解</i></font>"; 
+            }
+            data += "</td>";
+            data += "<td align=right nowrap>";
+            data += "<u><font size=7 color=red>" + Math.floor(100*seikai/NUM+0.5) + "点</font></u>";
+            data += "</td></tr>";
+            data += "<tr><td colspan=2 align=center><form>";
+            data += "<input type=button value='閉じる' onClick='window.close();'>";
+            data += "</form></td></tr></table>";
+            data += "</bo" + "dy></html>";
+        
+            is_newWin=1;
+            yy=200+30*(Math.floor(NUM/5)+1);
+            newWin=window.open("","kekkaWin","width=440,height=" + yy + ",toolbar=0,menubar=0,resizable=1, location=0,directories=0,status=0");
+            newWin.focus();
+            newWin.document.open();
+            newWin.document.write(data);
+            newWin.document.close();
+        }
+        
+        // フォームと変数のリセット
+        function yontaku_reset(){
+        	for(i=1; i<=NUM; i++) {
+        		a[i] = 0;
+        		seikai = 0;
+        	}
+        	document.myForm.reset();
+        }
+        
+        // 結果windowを閉じる
+        function byebye(){
+        	if (is_newWin == 1) {
+        		if ( newWin.closed == false) { newWin.close(); }
+        	}
+        }
+        
+        //-->
+    </script>
+    <h2>ITパスポート試験ステラテジ問題</h2>
+    この模擬試験の出題は20問です。回答時間の目安は20分です。
+    <noscript>
+      &lt;br&gt;
+      この四択問題は JavaScript で書かれています。&lt;br&gt;
+      JavaScript 対応ブラウザでご覧下さい。&lt;br&gt;
+    </noscript>
+    <script>
+      <!--
+        var x=new MakeArray(NUM);
+        var m=new MakeArray(4);
+        var str="", k; 
+        
+        if (shuffle) {
+        	x = ransu(NUM); 
+        } else {
+        	for (i=1;i<=NUM;i++) { x[i]=i; }
+        }
+        str += "<form name=\"myForm\">";
+        str += "<table width=640 cellpadding=2>";
+        for (j=1; j<=NUM; j++){
+        k=x[j];
+        str += "<tr><td width=40 bgcolor=lightblue align=center>問" + j + "</td>";
+        str += "<td width=600 bgcolor=lightcyan>" + q[k] + "</td></tr>";
+        str += "<tr><td></td><td><table width=100%>";
+        if (tate_yoko == "yoko") str += "<tr>";
+        m = ransu(4);
+        for(i=1;i<=4;i++) {
+        	mm=m[i];
+        	if (tate_yoko == "yoko") str += "<td width=25%>";
+        	if (tate_yoko == "tate") str += "<tr><td>";
+        	str += "<input type=radio name=Q" + j + " value=" + v[k][mm];
+        	str += " onClick=\"radio" + k + "(this)\">" + s[k][mm] + "</td>";
+        	if (tate_yoko == "tate") str += "</tr>";
+        }
+        if (tate_yoko == "yoko")  str += "</tr>"; 
+        str += "</table>";
+        str += "</td></tr>";
+        }
+        str += "</table>";
+        str += "<table width=620 border=0 cellspacing=0 cellpadding=2>";
+        str += "<tr><td align=center><br>";
+        str += "<input type=button onClick='kekka(this.form)' value=' 採点する '>　";
+        str += "<input type=button onClick='location.reload()' value=' やり直し '>";
+        str += "</td></tr>";
+        str += "<!---------------- 以下のリンクは消さないでください ------------->";
+      str += "<tr><td align=right>";
+      str += "  <a href='http://www.fureai.or.jp/~irie/webquiz/' target=top>";
+      str += "  <font size=1><i>created by WEB問題作成ツール</i></font></a><br>";
+      str += "  <a href='http://www.afinax.com/' target=top>";
+      str += "  <font size=1><i>produced by AFINAX K.Ishikawa</i></font></a>";
+      str += "</table><br>";
+      str += "</form>";
+      document.write( str );
+      //-->
+    </script>
+    <!------------------ ここから下はご自由にどうぞ -------------------->
+  </body>
+</html>

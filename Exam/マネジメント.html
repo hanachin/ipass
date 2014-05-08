@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0042)http://www.itpassport.jp/simulation01.html -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>マネジメント</title>
+  </head>
+  <body bgcolor="white" text="dimgray" onload="document.myForm.reset()" onunload="byebye()">
+    <script>
+      <!-- 
+        var NUM=20;  // 問題数
+        var tate_yoko="tate";  // 選択肢の並べ方
+        var shuffle =1;  // 問題の順番をランダムにする(1)、しない(0)
+        
+        var is_newWin=0;
+        
+        // １次元配列作成
+        function MakeArray(n){
+        	this.length=n;
+        }
+        
+        // ２次元配列作成
+        function DIM(dimx,dimy){
+        	var i;
+        	var myArray = new Array(dimy);
+        	for (i=0; i<=dimx; i++) myArray[i] = new Array(dimx);
+        		return myArray;
+        }
+        
+        var q=new MakeArray(NUM); // 問題文データ配列
+        var s=new DIM(NUM,4);     // 選択肢データ配列
+        var v=new DIM(NUM,4);     // 選択肢値　正解=1  不正解=0 
+
+q[1]="作業の予定と実績を表現するのに適している図表はどれか。";
+s[1][1]="ガントチャート";
+s[1][2]="円交差チャート　";
+s[1][3]="SDチャート";
+s[1][4]="デシジョンツリー";
+
+q[2]="不適合防止のためのプロセスを含む品質マネジメントシステムを効果的に適用し、顧客の満足を得ることを目的とする規格はどれか。　";
+s[2][1]="ISO 9001";
+s[2][2]="ISMS";
+s[2][3]="BS 7799";
+s[2][4]="ISO 14001";
+
+q[3]="外部設計の成果物に基づいて、実現方法や処理効率を考慮しながら、システム開発者の立場から進める設計作業はどれか。";
+s[3][1]="機能分割・構造化";
+s[3][2]="画面フロー設計";
+s[3][3]="コード設計";
+s[3][4]="論理データ設計";
+
+q[4]="システムの外部設計が完了したとき、承認を受けるものとして、適切なものはどれか。";
+s[4][1]="画面レイアウト";
+s[4][2]="システム開発計画";
+s[4][3]="流れ図";
+s[4][4]="物理データベース仕様";
+
+q[5]="設計上の誤りを早期に発見することを目的として、各設計の終了時点で作成者と複数の関係者が設計書をレビューする方法はどれか。";
+s[5][1]="ウォークスルー";
+s[5][2]="机上デバッグ";
+s[5][3]="トップダウンテスト";
+s[5][4]="並行シミュレーション";
+
+q[6]="ユーザの操作に起因するパソコンの障害について、ユーザと情報処理部員によるブレーンストーミングを行って、主要な障害ごとに原因となったと思われる操作、利用状況などを拾いあげた。障害対策を立てるために、ブレーンストーミングの結果を利用して原因と結果の関係を整理するのに適した図はどれか。";
+s[6][1]="特性要因図";
+s[6][2]="散布図";
+s[6][3]="パレート図";
+s[6][4]="ヒストグラム　";
+
+q[7]="SLAの説明はどれか。";
+s[7][1]="サービスの品質に関する利用者と提供者間の合意";
+s[7][2]="開発から保守までのソフトウェアライフサイクルプロセス";
+s[7][3]="システムの運用手法を体系化したフレームワーク ";
+s[7][4]="製品ベンダの品質マネジメントシステムに関する国際規格";
+
+q[8]="プログラムのテストの目的として、最も重要なものはどれか。";
+s[8][1]="バグを見つけること";
+s[8][2]="バグがないことを示すこと";
+s[8][3]="バグの原因を究明すること";
+s[8][4]="バグを修正すること";
+
+q[9]="CASE ツールは適用する開発工程や範囲によって分類できる。要求仕様分析機能が含まれる分類はどれか。";
+s[9][1]="上流";
+s[9][2]="開発プラットフォーム";
+s[9][3]="下流";
+s[9][4]="保守";
+
+q[10]="ホワイトボックステストのテストデータを作成するときの注目点として、適切なものはどれか。";
+s[10][1]="プログラムのアルゴリズムなどの内部構造";
+s[10][2]="同値分割法を適用して得られた同値クラスごとの境界値";
+s[10][3]="プログラムの機能";
+s[10][4]="プログラムの入力と出力の関係";
+
+q[11]="ITILにおける問題管理プロセスとして実施するものはどれか。";
+s[11][1]="システムダウンの根本原因を究明し、抜本的な対応策を策定する。";
+s[11][2]="システムダウンから暫定的に復旧させ、業務を継続できるようにする。";
+s[11][3]="システムダウンに備えて、復旧のための設計をする。";
+s[11][4]="システムダウンの発生を記録し、関係する部署に状況を連絡する。";
+
+q[12]="次の特徴をもつ結合テストの手法はどれか。</br>〔特徴〕</br>システム開発の当初から、プログラミングと結合テストの並行作業が可能である。</br>ドライバを必要とする。</br>スタブは不要である。";
+s[12][1]="ボトムアップテスト";
+s[12][2]="サンドイッチテスト";
+s[12][3]="トップダウンテスト";
+s[12][4]="ビッグバンテスト";
+
+q[13]="システム監査報告書の提出先として、“システム監査基準”に規定されているものはどれか。";
+s[13][1]="組織体の長";
+s[13][2]="監査対象プロジェクトの責任者";
+s[13][3]="システム利用部門の長";
+s[13][4]="情報システム部門の長";
+
+q[14]="コンピュータシステムのコストを初期コストとランニングコストに分けるとき、初期コストに含まれるものはどれか。";
+s[14][1]="ソフトウェア購入費";
+s[14][2]="オペレータ費用";
+s[14][3]="設備維持費";
+s[14][4]="リース機器費";
+
+q[15]="印刷されたマニュアルをオンラインマニュアルに替えることによって、改善が期待できる問題はどれか。";
+s[15][1]="アプリケーションのバージョンとマニュアルのバージョンが一致していない。  ";
+s[15][2]="ある説明文とほかの説明文との間に矛盾がある。";
+s[15][3]="説明文が長すぎて、要点が分かりにくい。";
+s[15][4]="説明文に誤字や脱字があり、意味の分からない部分がある。";
+
+q[16]="新しい受発注システムの開発において、現行の受発注システムと2か月間の平行運用を行った。その期間中は二つのシステムにデータを入力し、出力をチェックした。平行運用を開始した当初は順調に処理が進んでいたが、システムの切替え間際になって、新しいシステムの処理時間が非常に長くなってきた。原因として、テストが不十分であったと考えられるが、どのテストが不十分であったためか。  ";
+s[16][1]="負荷テスト";
+s[16][2]="機能テスト";
+s[16][3]="トップダウンテスト ";
+s[16][4]="ホワイトボックステスト";
+
+q[17]="プログラムのステップ数が多くなるほどステップ当たりのエラー数も多くなる傾向があるように見受けられたので、データを採って調べた。これを分析するのに最も適した図はどれか。";
+s[17][1]="散布図";
+s[17][2]="系統図";
+s[17][3]="特性要因図";
+s[17][4]="パレート図";
+
+q[18]="専門性や職場での経験、スキルの修得状況を考慮して、各個人の将来設計を作成し、達成させていくことを狙いとした仕組みはどれか。";
+s[18][1]="CDP";
+s[18][2]="OJT";
+s[18][3]="MBO";
+s[18][4]="OFFJT";
+
+q[19]="UMLで用いる図のうち、オブジェクト間で送受信するメッセージによる相互作用が表せるものはどれか。";
+s[19][1]="シーケンス図";
+s[19][2]="コンポーネント図";
+s[19][3]="ステートチャート";
+s[19][4]="ユースケース図";
+
+q[20]="修正保守によるシステムの修正が、ほかの正常な部分に影響を及ぼしていないことを検証するテストはどれか。";
+s[20][1]="退行テスト";
+s[20][2]="結合テスト　";
+s[20][3]="機能テスト";
+s[20][4]="例外テスト";
+
+
+        
+        v[1][1]=1; v[1][2]=0; v[1][3]=0; v[1][4]=0; 
+        v[2][1]=1; v[2][2]=0; v[2][3]=0; v[2][4]=0; 
+        v[3][1]=1; v[3][2]=0; v[3][3]=0; v[3][4]=0; 
+        v[4][1]=1; v[4][2]=0; v[4][3]=0; v[4][4]=0; 
+        v[5][1]=1; v[5][2]=0; v[5][3]=0; v[5][4]=0; 
+        v[6][1]=1; v[6][2]=0; v[6][3]=0; v[6][4]=0; 
+        v[7][1]=1; v[7][2]=0; v[7][3]=0; v[7][4]=0; 
+        v[8][1]=1; v[8][2]=0; v[8][3]=0; v[8][4]=0; 
+        v[9][1]=1; v[9][2]=0; v[9][3]=0; v[9][4]=0; 
+        v[10][1]=1; v[10][2]=0; v[10][3]=0; v[10][4]=0; 
+        v[11][1]=1; v[11][2]=0; v[11][3]=0; v[11][4]=0; 
+        v[12][1]=1; v[12][2]=0; v[12][3]=0; v[12][4]=0; 
+        v[13][1]=1; v[13][2]=0; v[13][3]=0; v[13][4]=0; 
+        v[14][1]=1; v[14][2]=0; v[14][3]=0; v[14][4]=0; 
+        v[15][1]=1; v[15][2]=0; v[15][3]=0; v[15][4]=0; 
+        v[16][1]=1; v[16][2]=0; v[16][3]=0; v[16][4]=0; 
+        v[17][1]=1; v[17][2]=0; v[17][3]=0; v[17][4]=0; 
+        v[18][1]=1; v[18][2]=0; v[18][3]=0; v[18][4]=0; 
+        v[19][1]=1; v[19][2]=0; v[19][3]=0; v[19][4]=0; 
+        v[20][1]=1; v[20][2]=0; v[20][3]=0; v[20][4]=0; 
+        
+        
+        // 乱数発生
+        function ransu(n) {
+        	var k=1, l,  bingo;
+        	var x=new MakeArray(NUM);
+        
+        	x[k] = Math.floor(n * Math.random())+1;
+        	k++;
+        	while ( k<=n ) {
+        		x[k] = Math.floor(n * Math.random())+1;
+        		bingo = 0;
+        	    for (l=1; l<k; l++) {  // すでに同じ数字がないかチェック
+        	    	if ( x[k] == x[l] ) { bingo=1; break; }
+        	    }
+        	    if (bingo==0) { k++; }	// 同じ数字がなければ k++
+        	}
+        	return x;
+        }
+        
+        
+        // 正解数カウント用配列
+        var a=new MakeArray(NUM);
+        for (i=1;i<=NUM;i++) { a[i]=0; }
+        
+        	function radio1(parts) { a[1]=parts.value; }
+        function radio2(parts) { a[2]=parts.value; }
+        function radio3(parts) { a[3]=parts.value; }
+        function radio4(parts) { a[4]=parts.value; }
+        function radio5(parts) { a[5]=parts.value; }
+        function radio6(parts) { a[6]=parts.value; }
+        function radio7(parts) { a[7]=parts.value; }
+        function radio8(parts) { a[8]=parts.value; }
+        function radio9(parts) { a[9]=parts.value; }
+        function radio10(parts) { a[10]=parts.value; }
+        function radio11(parts) { a[11]=parts.value; }
+        function radio12(parts) { a[12]=parts.value; }
+        function radio13(parts) { a[13]=parts.value; }
+        function radio14(parts) { a[14]=parts.value; }
+        function radio15(parts) { a[15]=parts.value; }
+        function radio16(parts) { a[16]=parts.value; }
+        function radio17(parts) { a[17]=parts.value; }
+        function radio18(parts) { a[18]=parts.value; }
+        function radio19(parts) { a[19]=parts.value; }
+        function radio20(parts) { a[20]=parts.value; }
+        
+        
+        // 結果 window display
+        function kekka(f){
+        	var data="", seikai=0 ,j, i, yy;
+        	data += "<html><head><title>結果</title></head>";
+        	data += "<bo" + "dy bgcolor=pink>";
+        	data += "<h3>採点結果です</h3>";
+        	data += "<table border=0 cellspacing=2 cellpadding=5><tr>";
+        	for(i=1;i<=NUM;i++){
+        		j=x[i];
+        		data += "<td width=80 align=center bgcolor=white>問"+i+"</td>";
+        		if (a[j]==1) {
+        			data += "<td width=40 align=center bgcolor=white><font color=blue>○</font></td>";
+        		} else {
+        			data += "<td width=40 align=center bgcolor=white><font color=red>×</font></td>";
+        		}
+        		if (i%5==0) {data += "</tr><tr>";}
+                seikai=seikai+eval(a[j]);      // 正解数をカウント
+            }
+            data += "</tr></table><br>";
+            data += "<table width=400><tr><td>";
+            if (seikai != NUM) {
+            	data += "<font color=green>"+NUM+"問中"+seikai+"問正解</font><br>"; 
+            }
+            if (seikai == NUM) {
+            	data += "<font color=red><i>Perfect !! 全問正解</i></font>"; 
+            }
+            data += "</td>";
+            data += "<td align=right nowrap>";
+            data += "<u><font size=7 color=red>" + Math.floor(100*seikai/NUM+0.5) + "点</font></u>";
+            data += "</td></tr>";
+            data += "<tr><td colspan=2 align=center><form>";
+            data += "<input type=button value='閉じる' onClick='window.close();'>";
+            data += "</form></td></tr></table>";
+            data += "</bo" + "dy></html>";
+        
+            is_newWin=1;
+            yy=200+30*(Math.floor(NUM/5)+1);
+            newWin=window.open("","kekkaWin","width=440,height=" + yy + ",toolbar=0,menubar=0,resizable=1, location=0,directories=0,status=0");
+            newWin.focus();
+            newWin.document.open();
+            newWin.document.write(data);
+            newWin.document.close();
+        }
+        
+        // フォームと変数のリセット
+        function yontaku_reset(){
+        	for(i=1; i<=NUM; i++) {
+        		a[i] = 0;
+        		seikai = 0;
+        	}
+        	document.myForm.reset();
+        }
+        
+        // 結果windowを閉じる
+        function byebye(){
+        	if (is_newWin == 1) {
+        		if ( newWin.closed == false) { newWin.close(); }
+        	}
+        }
+        
+        //-->
+    </script>
+    <h2>ITパスポート試験マネジメント問題</h2>
+    この模擬試験の出題は20問です。回答時間の目安は20分です。
+    <noscript>
+      &lt;br&gt;
+      この四択問題は JavaScript で書かれています。&lt;br&gt;
+      JavaScript 対応ブラウザでご覧下さい。&lt;br&gt;
+    </noscript>
+    <script>
+      <!--
+        var x=new MakeArray(NUM);
+        var m=new MakeArray(4);
+        var str="", k; 
+        
+        if (shuffle) {
+        	x = ransu(NUM); 
+        } else {
+        	for (i=1;i<=NUM;i++) { x[i]=i; }
+        }
+        str += "<form name=\"myForm\">";
+        str += "<table width=640 cellpadding=2>";
+        for (j=1; j<=NUM; j++){
+        k=x[j];
+        str += "<tr><td width=40 bgcolor=lightblue align=center>問" + j + "</td>";
+        str += "<td width=600 bgcolor=lightcyan>" + q[k] + "</td></tr>";
+        str += "<tr><td></td><td><table width=100%>";
+        if (tate_yoko == "yoko") str += "<tr>";
+        m = ransu(4);
+        for(i=1;i<=4;i++) {
+        	mm=m[i];
+        	if (tate_yoko == "yoko") str += "<td width=25%>";
+        	if (tate_yoko == "tate") str += "<tr><td>";
+        	str += "<input type=radio name=Q" + j + " value=" + v[k][mm];
+        	str += " onClick=\"radio" + k + "(this)\">" + s[k][mm] + "</td>";
+        	if (tate_yoko == "tate") str += "</tr>";
+        }
+        if (tate_yoko == "yoko")  str += "</tr>"; 
+        str += "</table>";
+        str += "</td></tr>";
+        }
+        str += "</table>";
+        str += "<table width=620 border=0 cellspacing=0 cellpadding=2>";
+        str += "<tr><td align=center><br>";
+        str += "<input type=button onClick='kekka(this.form)' value=' 採点する '>　";
+        str += "<input type=button onClick='location.reload()' value=' やり直し '>";
+        str += "</td></tr>";
+        str += "<!---------------- 以下のリンクは消さないでください ------------->";
+      str += "<tr><td align=right>";
+      str += "  <a href='http://www.fureai.or.jp/~irie/webquiz/' target=top>";
+      str += "  <font size=1><i>created by WEB問題作成ツール</i></font></a><br>";
+      str += "  <a href='http://www.afinax.com/' target=top>";
+      str += "  <font size=1><i>produced by AFINAX K.Ishikawa</i></font></a>";
+      str += "</table><br>";
+      str += "</form>";
+      document.write( str );
+      //-->
+    </script>
+    <!------------------ ここから下はご自由にどうぞ -------------------->
+  </body>
+</html>
